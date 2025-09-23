@@ -1,6 +1,4 @@
-﻿using System.Timers;
-
-namespace Laboratorio_7
+﻿namespace Laboratorio_7
 {
     internal class Banco
     {
