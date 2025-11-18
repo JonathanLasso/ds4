@@ -16,7 +16,18 @@ namespace Laboratorio_20_3
                                   Database=Productos;
                                   Trusted_Connection=True;
                                   TrustServerCertificate=True;";
-        bool nuevo;
+       
+        public bool Nuevo
+        {
+            get
+            {
+                return ViewState["nuevoProducto"] != null ? (bool)ViewState["nuevoProducto"] : false;
+            }
+            set
+            {
+                ViewState["nuevoProducto"] = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             tsbNuevo.Enabled = true;
@@ -28,7 +39,6 @@ namespace Laboratorio_20_3
             txtNombre.Enabled = false;
             txtPrecio.Enabled = false;
             txtStock.Enabled = false;
-            nuevo = true;
         }
 
         protected void tsbNuevo_Click(object sender, ImageClickEventArgs e)
@@ -43,12 +53,12 @@ namespace Laboratorio_20_3
             txtPrecio.Enabled = true;
             txtStock.Enabled = true;
             txtNombre.Focus();
-            nuevo = true;
+            Nuevo = true;
         }
 
         protected void tsbGuardar_Click(object sender, ImageClickEventArgs e)
         {
-            if (nuevo)
+            if (Nuevo)
             {
                 string sql = "INSERT INTO LAPTOPS (NOMBRE, PRECIO, STOCK)"
                     + "VALUES ('" + txtNombre.Text + "' , '" + txtPrecio.Text + "' , '" + txtStock.Text + "')";
@@ -77,7 +87,7 @@ namespace Laboratorio_20_3
 
             else
             {
-                string sql = "UPDATE LAPTOPS SET NOMBRE'" + txtNombre.Text +
+                string sql = "UPDATE LAPTOPS SET NOMBRE='" + txtNombre.Text +
                     "', PRECIO='" + txtPrecio.Text +
                     "' , " + "STOCK='" + txtStock.Text + "' WHERE id=" + txtId.Text + "";
 
@@ -116,6 +126,7 @@ namespace Laboratorio_20_3
             txtNombre.Text = "";
             txtPrecio.Text = "";
             txtStock.Text = "";
+            Nuevo = false;
         }
 
         protected void tsbCancelar_Click(object sender, ImageClickEventArgs e)
@@ -191,7 +202,7 @@ namespace Laboratorio_20_3
                 if (reader.Read())
                 {
                     tsbNuevo.Enabled = false;
-                    tsbGuardar.Enabled = false;
+                    tsbGuardar.Enabled = true;
                     tsbCancelar.Enabled = true;
                     tsbEliminar.Enabled = true;
                     tstId.Enabled = false;
@@ -204,7 +215,7 @@ namespace Laboratorio_20_3
                     txtNombre.Text = reader[1].ToString();
                     txtPrecio.Text = reader[2].ToString();
                     txtStock.Text = reader[3].ToString();
-                    nuevo = false;
+                    Nuevo = false;
                 }
 
                 else
@@ -221,7 +232,5 @@ namespace Laboratorio_20_3
 
             tstId.Text = "";
         }
-
-        
     }
 }

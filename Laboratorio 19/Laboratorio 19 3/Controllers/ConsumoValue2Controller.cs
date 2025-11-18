@@ -43,8 +43,8 @@ namespace Laboratorio_19_3.Controllers
                 responseBody = "Error al consumir el servicio: " + ex.Message;
             }
 
-            ViewBag.Index = responseBody;
-            return View("Index");
+            ViewBag.Resultado = responseBody;
+            return View("resultado");
         }
     }
 }

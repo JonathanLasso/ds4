@@ -22,8 +22,10 @@ namespace Laboratorio_19.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        [HttpPost]
+        public IHttpActionResult Post([FromBody] string value)
         {
+            return Ok("Valor recibido: " + value);
         }
 
         // PUT api/values/5

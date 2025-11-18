@@ -1,8 +1,16 @@
 ﻿
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "Index";
 }
 
-<h2>Resultado del API del Laboratorio 19-2</h2>
-<p>@ViewBag.Index</p>
+<h2>Prueba</h2>
+<p><a href="/ConsumoValues/GetItems" class="btn btn-primary">Obtener todo los values</a></p>
+<p><a href="/ConsumoValues/GetItem" class="btn btn-primary">Obtener el value 2</a></p>
+<form action="/ConsumoValues/postItem" method="post">
+    <h2>Formulario con metodo post</h2>
+    <label>Ingrese el valor :</label>
+    <input type="text" name="valor" />
+    <br /><br />
+    <input type="submit" value="Enviar" />
+</form>
 

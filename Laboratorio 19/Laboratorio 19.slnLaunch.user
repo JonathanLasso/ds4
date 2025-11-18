@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "Laboratorio 19\\Laboratorio 19.csproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "Laboratorio 19 2\\Laboratorio 19 2.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]

@@ -179,6 +179,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ConsumoValue2\index.cshtml" />
+    <Content Include="Views\ConsumoValue2\resultado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
